@@ -69,43 +69,28 @@ def createCommentaire(idName, idAnimal, commentaire) :
     
     return response
 
-def getCommentaire(idName, idAnimal) :
+def getCommentaire(idCommentaire) :
     # On vérifie qu'on a bien un identifiant d'utilisateur
-    if(not idName) :
+    if(not idCommentaire) :
         response = {
             "message" : "Il manque l'identifiant de l'utilisateur",
-            "code" : 422
-        }
-        return response
-
-    # On vérifie qu'on a bien un identifiant de fiche animal
-    if(not idAnimal) :
-        response = {
-            "message" : "Il manque l'identifiant de la fiche animal",
             "code" : 422
         }
         return response
 
     # On récupère la fiche animal
-    response = commentaireModel.get(idName, idAnimal)
+    response = commentaireModel.get(idCommentaire)
 
     # On renvoie les informations de la fiche animal
     return response
 
-def updateCommentaire(idName, idAnimal, commentaire) :
+def updateCommentaire(idCommentaire, commentaire) :
     # On vérifie que c'est bien formaté
     commentaire = commentaire.strip()
 
-    if(not idName) :
+    if(not idCommentaire) :
         response = {
-            "message" : "Il manque l'identifiant de l'utilisateur",
-            "code" : 422
-        }
-        return response
-
-    if(not idAnimal) :
-        response = {
-            "message" : "Il manque l'identifiant de la fiche de l'animal",
+            "message" : "Il manque l'identifiant du commentaire",
             "code" : 422
         }
         return response
@@ -124,30 +109,19 @@ def updateCommentaire(idName, idAnimal, commentaire) :
         }
         return response
 
-    # On vérifie que l'idName existe
-    checkUser = utilisateurModel.get(idName)
+    # On vérifie que l'idCommentaire existe
+    checkCommentaire = commentaireModel.get(idCommentaire)
 
-    if(checkUser["code"] == 404) :
-        # L'utilisateur n'existe pas
+    if(checkCommentaire["code"] == 404) :
+        # Le commentaire n'existe pas
         response = {
-            "message" : "L'utilisateur n'existe pas",
-            "code" : 422
-        }
-        return response
-
-    # On vérifie que l'idAnimal existe
-    checkFiche_animal = fiche_animalModel.get(idAnimal)
-
-    if(checkFiche_animal["code"] == 404) :
-        # La fiche animal n'existe pas
-        response = {
-            "message" : "La fiche animal n'existe pas",
+            "message" : "Le commentaire n'existe pas",
             "code" : 422
         }
         return response
 
     # On modifie le commentaire
-    commentaireModel.update(idName, idAnimal, commentaire)
+    commentaireModel.update(idCommentaire, commentaire)
     response = {
         "message" : "Commentaire correctement modifié",
         "code" : 200
@@ -156,25 +130,17 @@ def updateCommentaire(idName, idAnimal, commentaire) :
     # On renvoie une réponse
     return response
 
-def deleteCommentaire(idName, idAnimal) :
-    # On vérifie qu'on a bien un identifiant de l'utilisateur
-    if(not idName) :
+def deleteCommentaire(idCommentaire) :
+    # On vérifie qu'on a bien un identifiant de commentaire
+    if(not idCommentaire) :
         response = {
-            "message" : "Il manque l'identifiant de l'utilisateur",
-            "code" : 422
-        }
-        return response
-
-    # On vérifie qu'on a bien un identifiant de la fiche de l'animal
-    if(not idAnimal) :
-        response = {
-            "message" : "Il manque l'identifiant de l'animal",
+            "message" : "Il manque l'identifiant du commentaire",
             "code" : 422
         }
         return response
 
     # On vérifie que le commentaire existe
-    check = commentaireModel.get(idName, idAnimal)
+    check = commentaireModel.get(idCommentaire)
 
     if(check["code"] == 404) :
         response = {
@@ -184,7 +150,7 @@ def deleteCommentaire(idName, idAnimal) :
 
     else :
         # On supprime le commentaire
-        response = commentaireModel.delete(idName, idAnimal)
+        response = commentaireModel.delete(idCommentaire)
 
     # On renvoie une réponse
     return response

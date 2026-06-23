@@ -9,6 +9,7 @@ def create(idName, idAnimal, commentaire) :
     sql = f'''
         INSERT INTO commentaires VALUES 
         (
+            NULL,
             "{idName}",
             {idAnimal},
             "{commentaire}"
@@ -21,22 +22,23 @@ def create(idName, idAnimal, commentaire) :
     myCursor.close()
     myDb.close()
 
-def get(idName, idAnimal) :
+def get(idCommentaire) :
     # Connexion à la BDD
     myDb = connectToDB()
     myCursor = myDb.cursor()
 
     # On récupère les informations de l'animal
-    sql = f'''SELECT idName, idAnimal, commentaire FROM commentaires WHERE idName = "{idName}" AND idAnimal = {idAnimal}'''
+    sql = f'''SELECT * FROM commentaires WHERE idCommentaire = {idCommentaire}'''
     myCursor.execute(sql)
     data = myCursor.fetchall()
 
     if(data):
         response = {
             "commentaire": {
-                "idName" : data[0][0],
-                "idAnimal" : data[0][1],
-                "commentaire" : data[0][2],
+                "idCommentaire" : data[0][0],
+                "idName" : data[0][1],
+                "idAnimal" : data[0][2],
+                "commentaire" : data[0][3],
             },
             "code" : 200
         }
@@ -53,7 +55,7 @@ def get(idName, idAnimal) :
 
     return response
 
-def update(idName, idAnimal, commentaire) :
+def update(idCommentaire, commentaire) :
     # Connexion à la BDD
     myDb = connectToDB()
     myCursor = myDb.cursor()
@@ -61,10 +63,8 @@ def update(idName, idAnimal, commentaire) :
     # Mise à jour de la fiche animal
     sql = f'''
         UPDATE commentaires SET 
-        idName = "{idName}",
-        idAnimal = {idAnimal},
         commentaire = "{commentaire}"
-        WHERE idName = "{idName}" AND idAnimal = {idAnimal}
+        WHERE idCommentaire = {idCommentaire}
     '''
     myCursor.execute(sql)
     myDb.commit()
@@ -73,13 +73,13 @@ def update(idName, idAnimal, commentaire) :
     myCursor.close()
     myDb.close()
 
-def delete(idName, idAnimal) :
+def delete(idCommentaire) :
     # Connexion à la BDD
     myDb = connectToDB()
     myCursor = myDb.cursor()
 
     # Suppression de la fiche animal
-    sql = f'''DELETE FROM commentaires WHERE idName = "{idName}" AND idAnimal = {idAnimal}'''
+    sql = f'''DELETE FROM commentaires WHERE idCommentaire = {idCommentaire}'''
     myCursor.execute(sql)
     myDb.commit()
 

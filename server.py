@@ -6,6 +6,8 @@ import services.fiche_animal as fiche_animalService
 import services.espece as especeService
 import services.commentaire as commentaireService
 import services.activite as activiteService
+import services.inclue as inclueService
+import services.participe as participeService
 
 app = Flask(__name__)
 CORS(app)
@@ -80,15 +82,15 @@ def commentaire():
         return response
 
     if(request.method == "GET") :
-        response = commentaireService.getCommentaire(json["idName"], json["idAnimal"])
+        response = commentaireService.getCommentaire(json["idCommentaire"])
         return response
     
     if(request.method == "PUT") :
-        response = commentaireService.updateCommentaire(json["idName"], json["idAnimal"], json["commentaire"])
+        response = commentaireService.updateCommentaire(json["idCommentaire"], json["commentaire"])
         return response
 
     if(request.method == "DELETE") :
-        response = commentaireService.deleteCommentaire(json["idName"], json["idAnimal"])
+        response = commentaireService.deleteCommentaire(json["idCommentaire"])
         return response
     
 @app.route("/activite", methods=["POST", "GET", "PUT", "DELETE"])
@@ -109,4 +111,44 @@ def activite():
 
     if(request.method == "DELETE") :
         response = activiteService.deleteActivite(json["idActivite"])
+        return response
+
+@app.route("/inclue", methods=["POST", "GET", "PUT", "DELETE"])
+def inclue():
+    json = request.get_json()
+
+    if(request.method == "POST") :
+        response = inclueService.createInclue(json["idEspece"],json["idActivite"])
+        return response
+
+    if(request.method == "GET") :
+        response = inclueService.getInclue(json["idInclue"])
+        return response
+    
+    if(request.method == "PUT") :
+        response = inclueService.updateInclue(json["idInclue"], json["idEspece"], json["idActivite"])
+        return response
+
+    if(request.method == "DELETE") :
+        response = inclueService.deleteInclue(json["idInclue"])
+        return response
+
+@app.route("/participe", methods=["POST", "GET", "PUT", "DELETE"])
+def participe():
+    json = request.get_json()
+
+    if(request.method == "POST") :
+        response = participeService.createParticipe(json["idName"], json["idAnimal"], json["idActivite"], json["date"])
+        return response
+
+    if(request.method == "GET") :
+        response = participeService.getParticipe(json["idParticipe"])
+        return response
+    
+    if(request.method == "PUT") :
+        response = participeService.updateParticipe(json["idParticipe"], json["idName"], json["idAnimal"], json["idActivite"], json["date"])
+        return response
+
+    if(request.method == "DELETE") :
+        response = participeService.deleteParticipe(json["idParticipe"])
         return response
