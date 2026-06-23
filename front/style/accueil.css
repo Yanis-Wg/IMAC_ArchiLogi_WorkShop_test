@@ -145,7 +145,13 @@
 }
 
 .animalCardCommentaire-container{
+    display: flex;
+    flex-direction: column;
     padding: 0.75rem;
+}
+
+.animalCardCommentaire-container div:first-child{
+    flex: 1;
 }
 
 .animalCardCommentaire-container>div{
@@ -179,27 +185,52 @@
     gap: 0.25rem;
 }
 
-footer{
+#main1{
     display: flex;
-    width: 100%;
-    height: fit-content;
-    padding-bottom: 1.75rem;
+    flex-direction: column;
+}
+@media screen and (min-width:420px) {
+    #notreSelection-container>div>p {
+        font-size: 0.75rem;
+    }
+    #notreSelection_filtre>button{
+        font-size: 0.75rem;
+    }
+    .animalCard_categorie {
+        font-size: 0.75rem;
+    }
+    .animalDescription-container {
+        font-size: 0.75rem;
+    }
+    .commentaire>.username {
+        font-size: 0.5rem;
+    }
+    .commentaire>.message {
+        font-size: 0.75rem;
+    }
 }
 
-footer div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: fit-content;
-    font-size: 0.5rem;
-    gap: 0.25rem;
-}
-
-footer>div>p{
-    color: #B1B1B1;
-}
-
-footer>div>img{
-    height: 0.5rem;
+@media screen and (min-width:1020px) {
+    #title-container>div>p {
+        font-size: 1rem;
+    }
+    #title-container>div>h1 {
+        font-size: 2rem;
+    }
+    #notreSelection-container>h2 {
+        font-size: 1.5rem;
+    }
+    .animalCard {
+        flex-direction: row;
+        width: 49.5%;
+    }
+    .commentaire>.message {
+        font-size: 0.5rem;
+    }
+    #notreSelection_card-container{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+    }
 }
