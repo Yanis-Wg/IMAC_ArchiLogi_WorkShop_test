@@ -5,6 +5,7 @@ import services.utilisateur as userService
 import services.fiche_animal as fiche_animalService
 import services.espece as especeService
 import services.commentaire as commentaireService
+import services.activite as activiteService
 
 app = Flask(__name__)
 CORS(app)
@@ -88,4 +89,24 @@ def commentaire():
 
     if(request.method == "DELETE") :
         response = commentaireService.deleteCommentaire(json["idName"], json["idAnimal"])
+        return response
+    
+@app.route("/activite", methods=["POST", "GET", "PUT", "DELETE"])
+def activite():
+    json = request.get_json()
+
+    if(request.method == "POST") :
+        response = activiteService.createActivite(json["name"])
+        return response
+
+    if(request.method == "GET") :
+        response = activiteService.getActivite(json["idActivite"])
+        return response
+    
+    if(request.method == "PUT") :
+        response = activiteService.updateActivite(json["idActivite"], json["name"])
+        return response
+
+    if(request.method == "DELETE") :
+        response = activiteService.deleteActivite(json["idActivite"])
         return response

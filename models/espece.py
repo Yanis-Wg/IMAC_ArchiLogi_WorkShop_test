@@ -32,7 +32,7 @@ def get(idEspece) :
 
     if(data):
         response = {
-            "user": {
+            "espece": {
                 "idEspece" : data[0][0],
                 "name" : data[0][1],
             },
