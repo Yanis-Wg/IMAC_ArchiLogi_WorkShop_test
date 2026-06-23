@@ -1,0 +1,99 @@
+/* Font */
+@font-face {
+    font-family: "style";
+    src: url("../../ressource/font/reglarik-italic-otf-1775203716-0/Reglarik-Italic-Exfonte3df.otf");
+}
+
+@font-face {
+    font-family: "regular";
+    src: url("../../ressource/font/poppins/Poppins-Light.ttf");
+}
+
+@font-face {
+    font-family: "italic";
+    src: url("../../ressource/font/poppins/Poppins-Italic.ttf");
+}
+
+/* Initialisation des paramètres généraux */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+}
+
+main{
+    width: 100%;
+}
+
+a{
+    text-decoration: none;
+}
+
+p, a, li, h1, h2, h3, h4, h5, button{
+    color: var(--black);
+    font-weight: normal;
+    font-family: "regular";
+}
+
+ul{
+    list-style: none;
+}
+
+.style{
+    font-family: "style";
+}
+
+.italic{
+    font-family: "italic";
+}
+
+/* ---------------- HEADER -------------------- */
+
+header{
+    width: 100%;
+    height: fit-content;
+    position: sticky;
+    top: 0;
+}
+
+header nav{
+    height: fit-content;
+    width: 100%;
+    height: fit-content;
+}
+
+header nav ul{
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+}
+
+button{
+    all:unset;
+    font-family: "regular";
+}
+
+button:focus-visible{
+    outline: 2px solid var(--black);
+    outline-offset: 1px;
+}
+
+input{
+    font-family: "regular";
+    font-size: 0.75rem;
+}
+
+
