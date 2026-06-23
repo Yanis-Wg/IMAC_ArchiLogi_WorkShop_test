@@ -2,6 +2,7 @@ from flask import Flask,request,render_template,jsonify,abort
 from flask_cors import CORS
 
 import services.utilisateur as userService
+import services.espece as especeService
 
 app = Flask(__name__)
 CORS(app)
@@ -24,4 +25,24 @@ def utilisateur():
 
     if(request.method == "DELETE") :
         response = userService.deleteUtilisateur(json["idName"])
+        return response
+    
+@app.route("/espece", methods=["POST", "GET", "PUT", "DELETE"])
+def espece():
+    json = request.get_json()
+
+    if(request.method == "POST") :
+        response = especeService.createEspece(json["name"])
+        return response
+
+    if(request.method == "GET") :
+        response = especeService.getEspece(json["idEspece"])
+        return response
+    
+    if(request.method == "PUT") :
+        response = especeService.updateEspece(json["idEspece"], json["name"])
+        return response
+
+    if(request.method == "DELETE") :
+        response = especeService.deleteEspece(json["idEspece"])
         return response
