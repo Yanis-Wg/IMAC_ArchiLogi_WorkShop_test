@@ -8,6 +8,7 @@ import services.commentaire as commentaireService
 import services.activite as activiteService
 import services.inclue as inclueService
 import services.participe as participeService
+import services.note as noteService
 
 app = Flask(__name__)
 CORS(app)
@@ -151,4 +152,24 @@ def participe():
 
     if(request.method == "DELETE") :
         response = participeService.deleteParticipe(json["idParticipe"])
+        return response
+    
+@app.route("/note", methods=["POST", "GET", "PUT", "DELETE"])
+def note():
+    json = request.get_json()
+
+    if(request.method == "POST") :
+        response = noteService.createNote(json["idName"],json["idAnimal"],json["note"])
+        return response
+
+    if(request.method == "GET") :
+        response = noteService.getNote(json["idName"], json["idAnimal"])
+        return response
+    
+    if(request.method == "PUT") :
+        response = noteService.updateNote(json["idNote"],json["idName"],json["idAnimal"],json["note"])
+        return response
+
+    if(request.method == "DELETE") :
+        response = noteService.deleteNote(json["idNote"],json["idName"],json["idAnimal"])
         return response
