@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="./style/composant/style.css">
+    <link rel="stylesheet" href="./style/composant/variable.css">
+    <link rel="stylesheet" href="./style/accueil.css">
+    <script src="script/script.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="./index.html">
+                        <img src="./ressource/img/RYJ.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <button>
+                        <img src="./ressource/icons/menu_open.svg" alt="menu">
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="title-container">
+            <div>
+                <h1 class="style">Trouve ta mocheté</h1>
+                <p class="italic">Après tout la beauté est suggestive</p>
+            </div>
+        </section>
+        <section id="animauxSlider-container">
+            <div id="petiteImage-container">
+                <img src="./ressource/img/home/petite/image 15.png" alt="">
+                <img src="./ressource/img/home/petite/image 16.png" alt="">
+                <img src="./ressource/img/home/petite/image 19.png" alt="">
+                <img src="./ressource/img/home/petite/image 20.png" alt="">
+                <img src="./ressource/img/home/petite/image 21.png" alt="">
+                <img src="./ressource/img/home/petite/image 3.png" alt="">
+                <img src="./ressource/img/home/petite/image 8.png" alt="">
+            </div>
+            <div id="moyenneImage-container">
+                <img src="./ressource/img/home/moyenne/image 12.png" alt="">
+                <img src="./ressource/img/home/moyenne/image 14.png" alt="">
+                <img src="./ressource/img/home/moyenne/image 17.png" alt="">
+                <img src="./ressource/img/home/moyenne/image 22.png" alt="">
+                <img src="./ressource/img/home/moyenne/image 4.png" alt="">
+                <img src="./ressource/img/home/moyenne/image 6.png" alt="">
+            </div>
+            <div id="grandeImage-container">
+                <img src="./ressource/img/home/grande/image 11.png" alt="">
+                <img src="./ressource/img/home/grande/image 13.png" alt="">
+                <img src="./ressource/img/home/grande/image 18.png" alt="">
+                <img src="./ressource/img/home/grande/image 7.png" alt="">
+                <img src="./ressource/img/home/grande/image 9.png" alt="">
+            </div>
+        </section>
+        <section id="notreSelection-container">
+            <h2 class="style">Notre séléction</h2>
+            <div>
+                <p>Filtre</p>
+                <div id="notreSelection_filtre">
+                    <button id="tout">Tout</button>
+                    <button id="mammiferes">Mammifères</button>
+                    <button id="poissons">Poissons</button>
+                    <button id="amphibiens">Amphibiens</button>
+                    <button id="reptiles">Reptiles</button>
+                    <button id="oiseaux">Oiseaux</button>
+                </div>
+            </div>
+            <div id="notreSelection_card-container">
+                <div class="animalCard">
+                    <!-- Première partie de la carte -->
+                    <div>
+                        <img src="./ressource/img/home/animalCard/singe.png" alt="">
+                        <div class="animalDescription-container">
+                            <div class="animalCard_nameAndrating">
+                                <h3 class="animalCard_name">Novelli</h3>
+                                <div class="animalCard_rating">
+                                    <p>1.5</p>
+                                    <img src="./ressource/icons/stars.svg" alt="">
+                                </div>
+                            </div>
+                            <p class="animalCard_categorie">Mammifères</p>
+                            <p>Son gros paff c’est quoi ce nez aie aie aie, cié le tigre de la jungle ! Eh bah nan Cheh c’est juste un babouig</p>
+                        </div>
+                    </div>
+                    <!-- Deuxieme partie de la carte -->
+                    <div class="animalCardCommentaire-container">
+                        <!-- Commentaires -->
+                         <div>
+                            <div class="commentaire">
+                                <p class="username">Tom</p>
+                                <p class="message">Argh starfoulah il est moche zebi</p>
+                            </div>
+                        </div>
+                        <form action="">
+                            <input type="text" placeholder="Écrire un commentaire...">
+                            <input type="submit" value="Envoyer">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <p class="style">made with</p>
+            <img src="./ressource/icons/heart.png" alt="">
+        </div>
+    </footer>
+</body>
+</html>

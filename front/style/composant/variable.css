@@ -1,0 +1,91 @@
+:root {
+    /*********************************** ALL COLORS ***********************************/
+    
+    /* ALL */
+    --white:#fff;
+    --black:#242424;
+    --gris1:#F6F6F6;
+    --gris2:#F2F2F2;
+    --gris3:#E5E5E5;
+
+    /***** INDEX *****/
+
+    /* Back & Select Buttons */
+    --btn_back_color:#C3799F;
+    --btn-border_back_color:#7F4E67;
+    /* Index Buttons */
+    --btn_fight_color:#A01E1E;
+    --btn_checkPc_color:#1B88CC;
+    --btn_aboutUs_color:#00AD56;
+    /* Index Borders Buttons */
+    --btn-border_fight_color:#FF7A7A;
+    --btn-border_checkPc_color:#7ABCFF;
+    --btn-border_aboutUs_color:#58E08C;
+    /* Made With */
+    --color_made_with:#2D362C;
+
+    /***** PC BOX & PC BOX FIGHT *****/ 
+
+    /* Background Pokemon */
+    --background_pokemon_selection:linear-gradient(180deg, #2CBDEC 0%, #19A3DD 100%);
+    /* Background Page */
+    --background_color_green:#74C5BF;
+    --background_color_blue:#5F6F95;
+    --background-border_color_blue:#2D3956;
+    --background-border_color_dark_blue:#3C425D;
+    /* Button */
+    --btn_selectBox_color:#949FE7;
+    /* Border Button */
+    --btn-color_selectBox_color:#3E4469;
+    /* Background Pokemon Informations */
+    --background_poke_name_lvl_pkxNo:#4F8DAA;
+
+
+    /***** FIGHT *****/
+
+    /* Action Buttons */
+    --btn_attack_color:#C91C1C;
+    --btn_wait_color:#E76A2C;
+    --btn_heal_color:#6DC838;
+    --btn_runAway_color:#18A2F9;
+    /* Action Border Buttons */
+    --btn-border_attack_color:#FF7A7A;
+    --btn-border_wait_color:#FFA27A;
+    --btn-border_heal_color:#7DEE7B;
+    --btn-border_runAway_color:#7ABCFF;
+    /* Status */
+    --statut_backgroundColor:#6C775D;
+    --statut-border_backgroundColor:#2B352B;
+    /* Pv */
+    --statut-full_hp:#31DF35;
+    --statut-mid_hp:#EED63C;
+    --statut-low_hp:#EE4E3C;
+
+    /*********************************** ALL FONT SIZE ***********************************/
+
+    --font-size-even-even-bigger:4.5rem;
+    --font-size-even-bigger:3rem;
+    --font-size-bigger:2.5rem;
+    --font-size-big:2rem;
+    --font-size-medium:1.5rem; 
+    --font-size-small:1.25rem;
+    --font-size-very-small:1rem;
+
+    /*********************************** BORDER WIDTH ***********************************/
+
+    --border_size:0.25rem;
+    --medium-border_size:0.4rem;
+    --big-border_size:0.55rem;
+
+    /*********************************** BUTTONS SIZE ***********************************/
+
+    --btn-width_size:15.75rem;
+    --btn-height_size:3.375rem;
+
+    /* Buttons Size for PC */
+
+    --btn-width_size-pc: 18.75rem;
+    --btn-height_size-pc: 4.375rem;
+    --btn-width_size-pc-4k: 35.75rem;
+    --btn-height_size-pc-4k: 7.375rem;
+}
