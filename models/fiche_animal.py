@@ -9,8 +9,9 @@ def create(name, idName, idEspece) :
     sql = f'''
         INSERT INTO fiches_animal VALUES 
         (
+            NULL,
             "{name}",
-            {idName},
+            "{idName}",
             {idEspece}
         )
     '''
@@ -51,6 +52,8 @@ def get(idAnimal) :
     myCursor.close()
     myDb.close()
 
+    return response
+
 def update(idAnimal, name, idName, idEspece) :
     # Connexion à la BDD
     myDb = connectToDB()
@@ -90,3 +93,5 @@ def delete(idAnimal) :
     # Fermeture de la connexion
     myCursor.close()
     myDb.close()
+
+    return response

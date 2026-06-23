@@ -33,7 +33,7 @@ def fiche_animal():
     json = request.get_json()
 
     if(request.method == "POST") :
-        response = fiche_animalService.createFiche_animal()
+        response = fiche_animalService.createFiche_animal(json["name"], json["idName"], json["idEspece"])
         return response
 
     if(request.method == "GET") :
@@ -41,7 +41,7 @@ def fiche_animal():
         return response
     
     if(request.method == "PUT") :
-        response = fiche_animalService.updateFiche_animal()
+        response = fiche_animalService.updateFiche_animal(json["idAnimal"], json["name"], json["idName"], json["idEspece"])
         return response
 
     if(request.method == "DELETE") :

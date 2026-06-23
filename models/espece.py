@@ -42,7 +42,7 @@ def get(idEspece) :
     else :
         response = {
             "message" : "Espèce non trouvé",
-            "code" : 403
+            "code" : 404
         }
     
     # Fermeture de la connexion

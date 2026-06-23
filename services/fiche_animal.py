@@ -1,6 +1,8 @@
 from flask import jsonify
 
 import models.fiche_animal as fiche_animalModel
+import models.utilisateur as utilisateurModel
+import models.espece as especeModel
 
 def createFiche_animal(name, idName, idEspece) :
     # On vérifie que c'est correctement formater
@@ -61,7 +63,7 @@ def createFiche_animal(name, idName, idEspece) :
     
     # On renvoie une réponse
     response = {
-        "message" : "Utilisateur correctement ajouté",
+        "message" : "La fiche animal a été correctement ajouté",
         "code" : 200
     }
     
