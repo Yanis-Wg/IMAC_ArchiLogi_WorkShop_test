@@ -6,6 +6,7 @@ import services.fiche_animal as fiche_animalService
 import services.espece as especeService
 import services.commentaire as commentaireService
 import services.activite as activiteService
+import services.inclue as inclueService
 import services.participe as participeService
 
 app = Flask(__name__)
@@ -110,6 +111,26 @@ def activite():
 
     if(request.method == "DELETE") :
         response = activiteService.deleteActivite(json["idActivite"])
+        return response
+
+@app.route("/inclue", methods=["POST", "GET", "PUT", "DELETE"])
+def inclue():
+    json = request.get_json()
+
+    if(request.method == "POST") :
+        response = inclueService.createInclue(json["idEspece"],json["idActivite"])
+        return response
+
+    if(request.method == "GET") :
+        response = inclueService.getInclue(json["idInclue"])
+        return response
+    
+    if(request.method == "PUT") :
+        response = inclueService.updateInclue(json["idInclue"], json["idEspece"], json["idActivite"])
+        return response
+
+    if(request.method == "DELETE") :
+        response = inclueService.deleteInclue(json["idInclue"])
         return response
 
 @app.route("/participe", methods=["POST", "GET", "PUT", "DELETE"])
