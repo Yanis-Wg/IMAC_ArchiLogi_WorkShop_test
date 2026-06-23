@@ -35,10 +35,11 @@ def get(idParticipe) :
 
     if(data):
         response = {
-            "fiche_animal": {
-                "name" : data[0][0],
+            "participation": {
+                "idParticipe" : data[0][0],
                 "idName" : data[0][1],
-                "idEspece" : data[0][2],
+                "idAnimal" : data[0][2],
+                "date" : data[0][3]
             },
             "code" : 200
         }
@@ -62,11 +63,11 @@ def update(idParticipe, idName, idAnimal, idActivite, date) :
 
     # Mise à jour de la fiche animal
     sql = f'''
-        UPDATE paritcipe SET 
+        UPDATE participe SET 
         idName = "{idName}",
         idAnimal = {idAnimal},
         idActivite = {idActivite},
-        date = {date}
+        date = "{date}"
         WHERE idParticipe = {idParticipe}
     '''
     myCursor.execute(sql)

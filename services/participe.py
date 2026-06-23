@@ -39,7 +39,7 @@ def createParticipe(idName, idAnimal, idActivite, date) :
     enteredDate = datetime.strptime(date, "%Y-%m-%d")
     dateNow = datetime.now().strftime("%Y-%m-%d")
 
-    if(enteredDate < dateNow) :
+    if(enteredDate < datetime.strptime(dateNow, "%Y-%m-%d")) :
         response = {
             "message" : "Veuillez selectionner une date supérieur ou égale à celle actuelle",
             "code" : 403
@@ -189,12 +189,14 @@ def updateParticipe(idParticipe, idName, idAnimal, idActivite, date) :
     enteredDate = datetime.strptime(date, "%Y-%m-%d")
     dateNow = datetime.now().strftime("%Y-%m-%d")
 
-    if(enteredDate < dateNow) :
+    if(enteredDate < datetime.strptime(dateNow, "%Y-%m-%d")) :
         response = {
             "message" : "Veuillez selectionner une date supérieur ou égale à celle actuelle",
             "code" : 403
         }
         return response
+
+    print(date)
 
     # On modifie la participation
     participeModel.update(idParticipe, idName, idAnimal, idActivite, date)

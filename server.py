@@ -138,7 +138,7 @@ def participe():
     json = request.get_json()
 
     if(request.method == "POST") :
-        response = participeService.createParticipe(json["idName"], json["idAnimal"], json["idActivite"], date)
+        response = participeService.createParticipe(json["idName"], json["idAnimal"], json["idActivite"], json["date"])
         return response
 
     if(request.method == "GET") :
