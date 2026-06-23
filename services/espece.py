@@ -72,6 +72,17 @@ def updateEspece(idEspece, name) :
         }
         return response
 
+    # On vérifie si l'espèce existe
+    checkEspece = especeModel.get(idEspece)
+
+    if(checkEspece["code"] == 404) :
+        # L'espèce n'existe pas
+        response = {
+            "message" : "L'espèce n'existe pas",
+            "code" : 422
+        }
+        return response
+
     # On modifie l'espèce
     especeModel.update(idEspece, name)
     response = {
@@ -94,7 +105,7 @@ def deleteEspece(idEspece) :
     # On vérifie que l'espèce existe
     check = especeModel.get(idEspece)
 
-    if(check["code"] == 403) :
+    if(check["code"] == 404) :
         response = {
             "message" : "L'espèce n'existe pas",
             "code" : 404
