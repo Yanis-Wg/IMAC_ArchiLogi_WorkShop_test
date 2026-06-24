@@ -19,5 +19,6 @@ function menuOff1(){
     menuOpen.style.display="none"
     menuOff.style.display="flex"
     main1.style.display="flex"
+    main1.style.flexDirection="column"
     footer1.style.display="flex"
 }
