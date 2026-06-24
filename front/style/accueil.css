@@ -63,6 +63,13 @@
     flex-direction: column;
     padding: 1.75rem 1.75rem 0.75rem 1.75rem;
 }
+#notreSelection-container2{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem 1.75rem 2.75rem 1.75rem;
+}
 
 #notreSelection-container>h2{
     font-size: 1rem;
@@ -98,6 +105,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    margin-bottom:0.5rem;
 }
 
 .animalCard>div{
@@ -233,6 +241,11 @@
         gap: 0.5rem;
         justify-content: center;
     }
+    
+    /* #notreSelection-container>div {
+        display: flex;
+        flex-direction: row;
+    } */
 }
 
 .commentaire1{
@@ -249,4 +262,25 @@
     border-radius: 0.25rem;
     color: black;
     padding: 0.25rem 0.75rem;
+}
+
+#reservation-button{
+    background-color: white;
+    padding: 1rem;
+    width: 100%;
+    height: fit-content;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: right;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+#reservation-button>input{
+    background-color: white;
+    border: 1px solid black;
+    padding: 0.25rem 1rem;
+    border-radius: 55px;
+    font-size: 1rem;
 }
