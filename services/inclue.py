@@ -55,7 +55,14 @@ def createInclue(idEspece, idActivite) :
 
     return response
 
-def getInclue(idInclue) :
+def getInclueAll():
+    # On récupère toutes les inclusions
+    response = inclueModel.getInclueAll()
+
+    # On renvoie les inclusions
+    return response
+
+def getInclueById(idInclue) :
     # On vérifie qu'on a bien une activité
     if(not idInclue) :
         response = {
@@ -65,7 +72,7 @@ def getInclue(idInclue) :
         return response
 
     # On récupère une activité
-    response = inclueModel.get(idInclue)
+    response = inclueModel.getInclueById(idInclue)
 
     # On renvoie les informations de l'activité
     return response
@@ -105,7 +112,7 @@ def updateInclue(idInclue,idEspece,idActivite) :
         }
         return response
     # On vérifie que l'idActivite existe
-    checkActivite = activiteModel.get(idActivite)
+    checkActivite = activiteModel.getActiviteById(idActivite)
 
     if(checkActivite["code"] == 404) :
         # L'activite n'existe pas
@@ -114,7 +121,17 @@ def updateInclue(idInclue,idEspece,idActivite) :
             "code" : 422
         }
         return response
+    # On vérifie que l'idInclue existe
+    checkInclusion = inclueModel.getInclueById(idInclue)
 
+    if(checkInclusion["code"] == 404) :
+        # L'inclusion n'existe pas
+        response = {
+            "message" : "L'activité n'existe pas",
+            "code" : 422
+        }
+        return response
+    
     # On modifie l'inclusion
     inclueModel.update(idInclue,idEspece,idActivite)
     response = {
@@ -135,7 +152,7 @@ def deleteInclue(idInclue) :
         return response
 
     # On vérifie que l'inclusion existe
-    check = inclueModel.get(idInclue)
+    check = inclueModel.getInclueById(idInclue)
 
     if(check["code"] == 404) :
         response = {
