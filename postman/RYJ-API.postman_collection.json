@@ -1,10 +1,10 @@
 {
   "info": {
-    "_postman_id": "c0b9c658-5bca-47cc-9833-ce1bc29763c5",
+    "_postman_id": "9ef17e81-fedf-41a0-bafb-9a801e0f6a69",
     "name": "RYJ-API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "56106402",
-    "_collection_link": "https://go.postman.co/collection/56106402-c0b9c658-5bca-47cc-9833-ce1bc29763c5?source=collection_link"
+    "_exporter_id": "33314477",
+    "_collection_link": "https://go.postman.co/collection/33314477-9ef17e81-fedf-41a0-bafb-9a801e0f6a69?source=collection_link"
   },
   "item": [
     {
@@ -35,13 +35,7 @@
               "host": [
                 "localhost"
               ],
-              "host": [
-                "localhost"
-              ],
               "port": "5000",
-              "path": [
-                "utilisateur"
-              ]
               "path": [
                 "utilisateur"
               ]
@@ -74,14 +68,7 @@
               "host": [
                 "localhost"
               ],
-              "host": [
-                "localhost"
-              ],
               "port": "5000",
-              "path": [
-                "utilisateur",
-                "connect"
-              ]
               "path": [
                 "utilisateur",
                 "connect"
@@ -112,13 +99,7 @@
               "host": [
                 "localhost"
               ],
-              "host": [
-                "localhost"
-              ],
               "port": "5000",
-              "path": [
-                "utilisateur"
-              ]
               "path": [
                 "utilisateur"
               ]
@@ -148,13 +129,7 @@
               "host": [
                 "localhost"
               ],
-              "host": [
-                "localhost"
-              ],
               "port": "5000",
-              "path": [
-                "utilisateur"
-              ]
               "path": [
                 "utilisateur"
               ]
@@ -184,13 +159,7 @@
               "host": [
                 "localhost"
               ],
-              "host": [
-                "localhost"
-              ],
               "port": "5000",
-              "path": [
-                "utilisateur"
-              ]
               "path": [
                 "utilisateur"
               ]
@@ -225,13 +194,7 @@
               "host": [
                 "localhost"
               ],
-              "host": [
-                "localhost"
-              ],
               "port": "5000",
-              "path": [
-                "note"
-              ]
               "path": [
                 "note"
               ]
@@ -280,9 +243,6 @@
               "host": [
                 "localhost"
               ],
-              "host": [
-                "localhost"
-              ],
               "port": "5000",
               "path": [
                 "note",
@@ -299,7 +259,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "localhost:5000/note/animal/9",
+              "raw": "localhost:5000/note/animal/10",
               "host": [
                 "localhost"
               ],
@@ -307,7 +267,7 @@
               "path": [
                 "note",
                 "animal",
-                "9"
+                "10"
               ]
             }
           },
@@ -320,7 +280,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n\r\n    \"idName\" : \"testa\",\r\n    \"idAnimal\" : 9,\r\n    \"note\" : 5\r\n}",
+              "raw": "{\r\n\r\n    \"idName\" : \"mrraphi04\",\r\n    \"idAnimal\" : 10,\r\n    \"note\" : 4\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -332,13 +292,7 @@
               "host": [
                 "localhost"
               ],
-              "host": [
-                "localhost"
-              ],
               "port": "5000",
-              "path": [
-                "note"
-              ]
               "path": [
                 "note"
               ]
@@ -471,13 +425,14 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "localhost:5000/commentaire",
+              "raw": "localhost:5000/commentaire/3",
               "host": [
                 "localhost"
               ],
               "port": "5000",
               "path": [
-                "commentaire"
+                "commentaire",
+                "3"
               ]
             }
           },
@@ -502,13 +457,7 @@
               "host": [
                 "localhost"
               ],
-              "host": [
-                "localhost"
-              ],
               "port": "5000",
-              "path": [
-                "commentaire"
-              ]
               "path": [
                 "commentaire"
               ]
@@ -531,13 +480,14 @@
               }
             },
             "url": {
-              "raw": "localhost:5000/commentaire",
+              "raw": "localhost:5000/commentaire/2",
               "host": [
                 "localhost"
               ],
               "port": "5000",
               "path": [
-                "commentaire"
+                "commentaire",
+                "2"
               ]
             }
           },
@@ -549,13 +499,14 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "localhost:5000/commentaire",
+              "raw": "localhost:5000/commentaire/2",
               "host": [
                 "localhost"
               ],
               "port": "5000",
               "path": [
-                "commentaire"
+                "commentaire",
+                "2"
               ]
             }
           },
@@ -576,13 +527,7 @@
               "host": [
                 "localhost"
               ],
-              "host": [
-                "localhost"
-              ],
               "port": "5000",
-              "path": [
-                "fiche_animal"
-              ]
               "path": [
                 "fiche_animal"
               ]
@@ -596,14 +541,14 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "localhost:5000/fiche_animal/9",
+              "raw": "localhost:5000/fiche_animal/7",
               "host": [
                 "localhost"
               ],
               "port": "5000",
               "path": [
                 "fiche_animal",
-                "9"
+                "7"
               ]
             }
           },
