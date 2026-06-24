@@ -67,24 +67,31 @@ def fiche_animal():
         return response
 
     
-@app.route("/espece", methods=["POST", "GET", "PUT", "DELETE"])
+@app.route("/espece", methods=["POST", "GET"])
 def espece():
-    json = request.get_json()
-
     if(request.method == "POST") :
+        json = request.get_json()
         response = especeService.createEspece(json["name"])
         return response
 
     if(request.method == "GET") :
-        response = especeService.getEspece(json["idEspece"])
+        response = especeService.getAllEspece()
         return response
-    
+
+@app.route("/espece/<idEspece>", methods=["GET", "PUT", "DELETE"])
+def especeById(idEspece):
+    if(request.method == "GET") :
+        response = especeService.getEspeceById(idEspece)
+        return response
+
     if(request.method == "PUT") :
-        response = especeService.updateEspece(json["idEspece"], json["name"])
+        json = request.get_json()
+        response = especeService.updateEspece(idEspece, json["name"])
         return response
 
     if(request.method == "DELETE") :
-        response = especeService.deleteEspece(json["idEspece"])
+        json = request.get_json()
+        response = especeService.deleteEspece(idEspece)
         return response
 
 @app.route("/commentaire", methods=["POST", "GET", "PUT", "DELETE"])
