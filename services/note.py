@@ -108,7 +108,7 @@ def getNoteUtilisateurById(idName):
     # On renvoie les informations de l'activité
     return response
 
-def getNoteAnimal(idAnimal):
+def getAvgNoteAnimal(idAnimal):
     # On vérifie que c'est correctement formater
     if(not idAnimal) :
         response = {
@@ -118,7 +118,7 @@ def getNoteAnimal(idAnimal):
         return response
 
     # On récupère une note
-    response = noteModel.getNoteAnimal(idAnimal)
+    response = noteModel.getAvgNoteAnimal(idAnimal)
 
     # On renvoie les informations de l'activité
     return response

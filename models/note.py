@@ -164,7 +164,7 @@ def getAllFromUtilisateur(idName) :
 
     return response
 
-def getNoteAnimal(idAnimal):
+def getAvgNoteAnimal(idAnimal):
     # Connexion à la BDD
     myDb = connectToDB()
     myCursor = myDb.cursor()
@@ -178,11 +178,12 @@ def getNoteAnimal(idAnimal):
     data = myCursor.fetchall()
 
     if(data):
+        moyenne_clamp = round(data[0][2],2)
         response = {
             "note": {
                 "idAnimal" : data[0][0],
                 "name" : data[0][1],
-                "Moyenne note" : data[0][2],
+                "Moyenne note" : moyenne_clamp,
             },
             "code" : 200
         }
