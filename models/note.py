@@ -179,13 +179,13 @@ def getAvgNoteAnimal(idAnimal):
     myCursor.execute(sql)
     data = myCursor.fetchall()
 
-    if(data[0]):
+    if(data[0][2] is not None):
         moyenne_clamp = round(data[0][2], 2)
         response = {
             "note": {
                 "idAnimal" : data[0][0],
                 "name" : data[0][1],
-                "Moyenne note" : moyenne_clamp,
+                "moyenne-note" : moyenne_clamp,
             },
             "code" : 200
         }
