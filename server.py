@@ -161,22 +161,29 @@ def activiteById(idActivite):
 
 @app.route("/inclue", methods=["POST", "GET", "PUT", "DELETE"])
 def inclue():
-    json = request.get_json()
 
     if(request.method == "POST") :
+        json = request.get_json()
         response = inclueService.createInclue(json["idEspece"],json["idActivite"])
         return response
 
     if(request.method == "GET") :
-        response = inclueService.getInclue(json["idInclue"])
+        response = inclueService.getInclueAll()
+        return response
+
+@app.route("/inclue/<idInclue>", methods=["GET", "PUT", "DELETE"])
+def inclueById(idInclue):
+    if(request.method == "GET") :
+        response = inclueService.getInclueById(idInclue)
         return response
     
     if(request.method == "PUT") :
-        response = inclueService.updateInclue(json["idInclue"], json["idEspece"], json["idActivite"])
+        json = request.get_json()
+        response = inclueService.updateInclue(idInclue, json["idEspece"], json["idActivite"])
         return response
 
     if(request.method == "DELETE") :
-        response = inclueService.deleteInclue(json["idInclue"])
+        response = inclueService.deleteInclue(idInclue)
         return response
 
 @app.route("/participe", methods=["POST", "GET", "PUT", "DELETE"])
