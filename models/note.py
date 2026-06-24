@@ -179,8 +179,6 @@ def getAvgNoteAnimal(idAnimal):
     myCursor.execute(sql)
     data = myCursor.fetchall()
 
-    if(data[0]):
-        moyenne_clamp = round(data[0][2], 2)
     if(data[0][2] is not None):
         moyenne_clamp = round(data[0][2],2)
         response = {
