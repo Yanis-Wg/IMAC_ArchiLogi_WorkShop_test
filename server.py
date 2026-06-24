@@ -213,6 +213,11 @@ def noteById(idNote):
         response = noteService.getNoteById(idNote)
         return response
 
+@app.route("/note/animal/<idAnimal>", methods=["GET"])
+def noteByAnimal(idAnimal):
+    response = noteService.getNoteAnimal(idAnimal)
+    return response
+
 @app.route("/note/<idName>/<idNote>", methods=["PUT"])
 def noteByUser(idName, idNote):
         json = request.get_json()
