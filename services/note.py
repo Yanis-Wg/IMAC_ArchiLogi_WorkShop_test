@@ -87,7 +87,7 @@ def getNoteAll() :
     return response
 
 def getNoteById(idNote) :
-     # On vérifie que c'est correctement formater
+    # On vérifie que c'est correctement formater
     if(not idNote) :
         response = {
             "message" : "Il manque l'identifiant de l'utilisateur",
