@@ -181,6 +181,8 @@ def getAvgNoteAnimal(idAnimal):
 
     if(data[0]):
         moyenne_clamp = round(data[0][2], 2)
+    if(data[0][2] is not None):
+        moyenne_clamp = round(data[0][2],2)
         response = {
             "note": {
                 "idAnimal" : data[0][0],
