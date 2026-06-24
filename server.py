@@ -1,7 +1,7 @@
 from flask import Flask,request,render_template,jsonify,abort
 from flask_cors import CORS
 
-import services.utilisateur as userService
+import services.utilisateur as utilisateurService
 import services.fiche_animal as fiche_animalService
 import services.espece as especeService
 import services.commentaire as commentaireService
@@ -13,30 +13,37 @@ import services.note as noteService
 app = Flask(__name__)
 CORS(app)
 
-@app.route("/utilisateur", methods=["POST", "GET", "PUT", "DELETE"])
+@app.route("/utilisateur", methods=["POST", "GET"])
 def utilisateur():
-    json = request.get_json()
 
     if(request.method == "POST") :
-        response = userService.createUtilisateur(json["idName"], json["username"], json["pwd"])
+        json = request.get_json()
+        response = utilisateurService.createUtilisateur(json["idName"], json["username"], json["pwd"])
         return response
 
     if(request.method == "GET") :
-        response = userService.getUtilisateur(json["idName"])
+        response = utilisateurService.getAllUtilisateur()
         return response
-    
+
+@app.route("/utilisateur/<idName>", methods=["GET", "PUT", "DELETE"])
+def utilisateurByID(idName):
+    if(request.method == "GET") :
+        response = utilisateurService.getUtilisateurById(idName)
+        return response
+
     if(request.method == "PUT") :
-        response = userService.updateUtilisateur(json["previousIdName"], json["idName"], json["username"], json["pwd"])
+        json = request.get_json()
+        response = utilisateurService.updateUtilisateur(idName, json["newidName"], json["username"], json["pwd"])
         return response
 
     if(request.method == "DELETE") :
-        response = userService.deleteUtilisateur(json["idName"])
+        response = utilisateurService.deleteUtilisateur(idName)
         return response
 
 @app.route("/utilisateur/connect", methods=["GET"])
 def utilisateurConnect():
     json = request.get_json()
-    response = userService.connectUtilisateur(json["idName"], json["pwd"])
+    response = utilisateurService.connectUtilisateur(json["idName"], json["pwd"])
     return response
 
 @app.route("/fiche_animal", methods=["POST", "GET"])
@@ -66,25 +73,32 @@ def fiche_animalById(idAnimal):
         response = fiche_animalService.deleteFiche_animal(idAnimal)
         return response
 
-
-@app.route("/espece", methods=["POST", "GET", "PUT", "DELETE"])
+    
+@app.route("/espece", methods=["POST", "GET"])
 def espece():
-    json = request.get_json()
-
     if(request.method == "POST") :
+        json = request.get_json()
         response = especeService.createEspece(json["name"])
         return response
 
     if(request.method == "GET") :
-        response = especeService.getEspece(json["idEspece"])
+        response = especeService.getAllEspece()
         return response
-    
+
+@app.route("/espece/<idEspece>", methods=["GET", "PUT", "DELETE"])
+def especeById(idEspece):
+    if(request.method == "GET") :
+        response = especeService.getEspeceById(idEspece)
+        return response
+
     if(request.method == "PUT") :
-        response = especeService.updateEspece(json["idEspece"], json["name"])
+        json = request.get_json()
+        response = especeService.updateEspece(idEspece, json["name"])
         return response
 
     if(request.method == "DELETE") :
-        response = especeService.deleteEspece(json["idEspece"])
+        json = request.get_json()
+        response = especeService.deleteEspece(idEspece)
         return response
 
 @app.route("/commentaire", methods=["POST", "GET", "PUT", "DELETE"])
